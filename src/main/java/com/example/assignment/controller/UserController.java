@@ -7,15 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping(path = "api/v1/users")
 public class UserController {
     @Autowired
     private UserService userService;
 
     @PostMapping
     public User save(@RequestBody User user){
+
         return userService.save(user);
     }
 
@@ -24,4 +26,12 @@ public class UserController {
         return userService.getAllUsers();
     }
 
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable String id){
+        userService.delete(id);
+    }
+     @GetMapping("/getUserById")
+     public Optional<User> getUserById(@RequestParam(name = "user_Id") String id){
+         return userService.getUserById(id);
+     }
 }

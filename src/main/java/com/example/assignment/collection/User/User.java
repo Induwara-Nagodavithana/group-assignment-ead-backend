@@ -51,6 +51,7 @@ public class User {
     private String password;
     @NonNull
     private Role role;
+    private String remark;
 
 
 }
