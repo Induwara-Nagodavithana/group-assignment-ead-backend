@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface UserService {
-    User saveOrUpdate(User user);
 
     List<User> getAllUsers();
 
@@ -14,5 +13,6 @@ public interface UserService {
     Optional<User> getUserById(String id);
 
 
+    User saveOrUpdate(User user);
 }
 
