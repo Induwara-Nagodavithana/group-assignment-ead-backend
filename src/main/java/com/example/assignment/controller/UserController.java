@@ -17,8 +17,7 @@ public class UserController {
 
     @PostMapping
     public User save(@RequestBody User user){
-
-        return userService.save(user);
+        return userService.saveOrUpdate(user);
     }
 
     @GetMapping
@@ -34,4 +33,6 @@ public class UserController {
      public Optional<User> getUserById(@RequestParam(name = "user_Id") String id){
          return userService.getUserById(id);
      }
+
+
 }

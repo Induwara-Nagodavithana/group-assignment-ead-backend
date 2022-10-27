@@ -13,7 +13,7 @@ public class UserServiceImpl implements UserService{
     @Autowired
     private UserRepository userRepository;
     @Override
-    public User save(User user) {
+    public User saveOrUpdate(User user) {
         return userRepository.save(user);
     }
 
@@ -31,6 +31,8 @@ public class UserServiceImpl implements UserService{
     public Optional<User> getUserById(String id) {
         return userRepository.findById(id);
     }
+
+
 
 
 }
