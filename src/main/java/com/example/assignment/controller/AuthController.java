@@ -33,7 +33,7 @@ public class AuthController {
 
     @PostMapping("/authenticate")
     public JwtResponse authenticate(@RequestBody JwtRequest jwtRequest) throws Exception{
-
+        System.out.println(jwtRequest.getUsername());
         try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
@@ -42,6 +42,7 @@ public class AuthController {
                     )
             );
         } catch (BadCredentialsException e) {
+
             throw new Exception("INVALID_CREDENTIALS", e);
         }
 
