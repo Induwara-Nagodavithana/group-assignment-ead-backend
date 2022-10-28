@@ -38,10 +38,10 @@ public class LoanService {
         return LoanRepo.findByUserId(userId);
     }
 
-//    //Get loans by status
-//    public List<Loan> LoanByStatus(String loanStatus) {
-//        return LoanRepo.findByState(loanStatus);
-//    }
+    //Get loans by status
+    public List<Loan> LoanByStatus(String loanStatus) {
+        return LoanRepo.findLoansByLoanStatus(loanStatus);
+    }
 
 
     //Update Operations
@@ -60,9 +60,10 @@ public class LoanService {
     }
 
     //update loan by id
-//    public Loan updateLoan(String loanId,Loan loanRequest) {
-//        return LoanRepo.updateLoanById(loanId,loanRequest);
-//    }
+    public Loan updateById (String loanId, Loan loanData) {
+        loanData.setLoanId(loanId);
+        return LoanRepo.save(loanData);
+    }
 
 
 }

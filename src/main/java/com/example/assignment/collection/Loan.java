@@ -20,6 +20,6 @@ public class Loan {
     private String userId;
     private String guaranteeNIC;
     private String guaranteeName;
-    private String loanStatus;
+    private LoanStatus loanStatus;
     private String interestRate;
 }

@@ -43,15 +43,20 @@ public class LoanController {
         return service.getLoanByUserId(userId);
     }
 
-//    //get loan by status
-//    @GetMapping("/status/{loanStatus}")
-//    public List<Loan> getLoanByStatus (@PathVariable String loanStatus) {
-//        return service.LoanByStatus(loanStatus);
-//    }
+    //get loan by status
+    @GetMapping("/status/{loanStatus}")
+    public List<Loan> getLoanByStatus (@PathVariable String loanStatus) {
+        return service.LoanByStatus(loanStatus);
+    }
 
     //update all loan details
     @PutMapping
     public Loan updateLoan (@RequestBody Loan loan) {
         return service.updateLoanDetails(loan);
     };
+
+    @PutMapping("/update/{loanId}")
+    public Loan updateLoanById (@PathVariable String loanId, @RequestBody Loan loanData) {
+        return service.updateById(loanId,loanData);
+    }
 }

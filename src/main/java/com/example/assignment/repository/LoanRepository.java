@@ -11,6 +11,6 @@ import java.util.UUID;
 public interface LoanRepository extends MongoRepository<Loan,String> {
     List<Loan> findByUserId(String userId);
 
-//    List<Loan> findByState(String loanStatus);
+    List<Loan> findLoansByLoanStatus(String loanStatus);
 
 }
