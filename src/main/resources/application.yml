@@ -1,0 +1,5 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://testjava:admin@cluster0.9pdcn5z.mongodb.net/?retryWrites=true&w=majority
+      database: Loan
