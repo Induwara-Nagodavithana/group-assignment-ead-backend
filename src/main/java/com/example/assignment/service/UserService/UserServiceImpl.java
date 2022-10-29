@@ -22,10 +22,12 @@ public class UserServiceImpl implements UserService{
     @Override
     public void delete(String id) {
          userRepository.deleteById(id);
+
     }
 
     @Override
     public Optional<User> getUserById(String id) {
+        System.out.println(userRepository.findById(id));
         return userRepository.findById(id);
     }
 
@@ -33,6 +35,18 @@ public class UserServiceImpl implements UserService{
     public User saveOrUpdate(User user) {
         return userRepository.save(user);
     }
+
+    @Override
+    public List<User> getAllByEmail(String email) {
+        return  userRepository.findByEmail(email);
+    }
+
+    @Override
+    public List<User> getAllByLastName(String lastName) {
+        return userRepository.findByLastName(lastName);
+    }
+
+
 
 
 }

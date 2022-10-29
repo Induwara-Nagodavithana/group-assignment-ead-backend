@@ -1,9 +1,7 @@
 package com.example.assignment.collection.User;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NonNull;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -13,6 +11,8 @@ import java.time.LocalDate;
 @Builder
 @Document(collection = "user")
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
     @Id
     private String userId;

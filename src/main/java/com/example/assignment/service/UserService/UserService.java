@@ -14,5 +14,11 @@ public interface UserService {
 
 
     User saveOrUpdate(User user);
+
+    List<User> getAllByEmail(String email);
+
+    List<User> getAllByLastName(String lastName);
+
+
 }
 

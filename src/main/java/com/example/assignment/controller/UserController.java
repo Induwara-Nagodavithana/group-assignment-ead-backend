@@ -27,6 +27,7 @@ public class UserController {
     public void delete(@PathVariable String id){
         userService.delete(id);
     }
+
     @GetMapping("/getUserById")
     public Optional<User> getUserById(@RequestParam(name = "user_Id") String id){
         return userService.getUserById(id);
@@ -36,4 +37,16 @@ public class UserController {
     public User save(@RequestBody User user){
         return userService.saveOrUpdate(user);
     }
+
+    @GetMapping("/getByEmail")
+    public List<User> getByEmail(@RequestParam(name = "email") String email){
+        return userService.getAllByEmail(email);
+    }
+
+    @GetMapping("/lastName")
+    public List<User> getAllByLastName(@RequestParam(name = "lastName") String lastName){
+        return userService.getAllByLastName(lastName);
+    }
+
+
 }
