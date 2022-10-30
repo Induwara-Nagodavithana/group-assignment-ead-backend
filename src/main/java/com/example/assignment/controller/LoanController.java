@@ -49,12 +49,13 @@ public class LoanController {
         return service.LoanByStatus(loanStatus);
     }
 
-    //update all loan details
-    @PutMapping
-    public Loan updateLoan (@RequestBody Loan loan) {
-        return service.updateLoanDetails(loan);
+    //update several details by id
+    @PutMapping("/{loanId}")
+    public Loan updateLoan (@PathVariable String loanId,@RequestBody Loan loan) {
+        return service.updateLoanDetails(loanId,loan);
     };
 
+    //update all details by id
     @PutMapping("/update/{loanId}")
     public Loan updateLoanById (@PathVariable String loanId, @RequestBody Loan loanData) {
         return service.updateById(loanId,loanData);

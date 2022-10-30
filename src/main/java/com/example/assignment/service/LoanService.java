@@ -2,7 +2,12 @@ package com.example.assignment.service;
 
 import com.example.assignment.collection.Loan;
 import com.example.assignment.repository.LoanRepository;
+import com.mongodb.client.result.UpdateResult;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,6 +17,9 @@ import java.util.UUID;
 public class LoanService {
     @Autowired
     private LoanRepository LoanRepo;
+
+    @Autowired
+    private MongoTemplate mt;
 
     // CRUD Operations methods are here......
 
@@ -45,21 +53,41 @@ public class LoanService {
 
 
     //Update Operations
-    public Loan updateLoanDetails(Loan loanRequest) {
-        Loan existingLoan = LoanRepo.findById(loanRequest.getLoanId()).get();
-        existingLoan.setAmount(loanRequest.getAmount());
-        existingLoan.setLoanStatus(loanRequest.getLoanStatus());
-        existingLoan.setType(loanRequest.getType());
-        existingLoan.setDescription(loanRequest.getDescription());
-        existingLoan.setGuaranteeNIC(loanRequest.getGuaranteeNIC());
-        existingLoan.setGuaranteeName(loanRequest.getGuaranteeName());
-        existingLoan.setInstallments(loanRequest.getInstallments());
-        existingLoan.setInterestRate(loanRequest.getInterestRate());
-        existingLoan.setUserId(loanRequest.getUserId());
+
+    //update several details by id
+    public Loan updateLoanDetails(String loanId,Loan loanRequest) {
+        Loan existingLoan = LoanRepo.findById(loanId).get();
+        if (loanRequest.getAmount() != null ) {
+            existingLoan.setAmount(loanRequest.getAmount());
+        }
+        if (loanRequest.getLoanStatus() != null ) {
+            existingLoan.setLoanStatus(loanRequest.getLoanStatus());
+        }
+        if (loanRequest.getType() != null ) {
+            existingLoan.setType(loanRequest.getType());
+        }
+        if (loanRequest.getDescription() != null ) {
+            existingLoan.setDescription(loanRequest.getDescription());
+        }
+        if (loanRequest.getGuaranteeNIC() != null ) {
+            existingLoan.setGuaranteeNIC(loanRequest.getGuaranteeNIC());
+        }
+        if (loanRequest.getGuaranteeName() != null ) {
+            existingLoan.setGuaranteeName(loanRequest.getGuaranteeName());
+        }
+        if (loanRequest.getInstallments() != 0 ) {
+            existingLoan.setInstallments(loanRequest.getInstallments());
+        }
+        if (loanRequest.getInterestRate() != null ) {
+            existingLoan.setInterestRate(loanRequest.getInterestRate());
+        }
+        if (loanRequest.getUserId() != null ) {
+            existingLoan.setUserId(loanRequest.getUserId());
+        }
         return LoanRepo.save(existingLoan);
     }
 
-    //update loan by id
+    //update all loan details by id
     public Loan updateById (String loanId, Loan loanData) {
         loanData.setLoanId(loanId);
         return LoanRepo.save(loanData);
