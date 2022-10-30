@@ -60,4 +60,11 @@ public class LoanController {
     public Loan updateLoanById (@PathVariable String loanId, @RequestBody Loan loanData) {
         return service.updateById(loanId,loanData);
     }
+
+    //delete loan by id
+    @DeleteMapping("/delete/{loanId}")
+    public String deleteLoanById (@PathVariable("loanId") String loanId) {
+        service.deleteLoanById(loanId);
+        return loanId + " Delete successfully";
+    }
 }

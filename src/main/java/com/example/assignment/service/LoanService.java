@@ -93,5 +93,11 @@ public class LoanService {
         return LoanRepo.save(loanData);
     }
 
+    //Delete loan by id
+    public String deleteLoanById (String loanId) {
+        LoanRepo.deleteById(loanId);
+        return loanId + "Deleted";
+    }
+
 
 }
