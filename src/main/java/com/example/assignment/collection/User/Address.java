@@ -6,10 +6,10 @@ import lombok.Data;
 @Data
 @Builder
 public class Address {
-    private String Street1;
-    private String Street2;
-    private String Town;
-    private String City;
-    private Integer PostalCode;
+    private String street1;
+    private String street2;
+    private String town;
+    private String city;
+    private Integer postalCode;
 
 }

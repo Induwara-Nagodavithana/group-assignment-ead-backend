@@ -1,7 +1,7 @@
 package com.example.assignment.config;
 
 import com.example.assignment.filter.JwtFilter;
-import com.example.assignment.service.AuthService.AuthService;
+import com.example.assignment.service.AuthService.AuthServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,7 +18,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 
     @Autowired
-    private AuthService authService;
+    private AuthServiceImpl authService;
 
     @Autowired
     private JwtFilter jwtFilter;
