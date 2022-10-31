@@ -1,6 +1,6 @@
 package com.example.assignment.filter;
 
-import com.example.assignment.service.AuthService.AuthService;
+import com.example.assignment.service.AuthService.AuthServiceImpl;
 import com.example.assignment.utility.JWTUtility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -23,7 +23,7 @@ public class JwtFilter extends OncePerRequestFilter {
     private JWTUtility jwtUtility;
 
     @Autowired
-    private AuthService authService;
+    private AuthServiceImpl authService;
 
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
