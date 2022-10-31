@@ -36,7 +36,9 @@ public class AuthController {
 
     @GetMapping("/")
     public String home() {
+
         return "Welcome!!";
+
     }
 
     @PostMapping("/authenticate")
